@@ -3,6 +3,7 @@ import Navbar from "@/app/components/navbar/page";
 import react from "react";
 import axios from "axios";
 import {loadStripe} from "@stripe/stripe-js";
+import { API_URL } from "@/app/lib/api";
 
 
 const stripeKey = "pk_test_51UB70ePcVMBDfhN8mDuxvKYI37fcmLWLsnAqr03iEaBm2P2oyQRR29JePCRpKh6pyadaFCYpJvW97tnNQHLsJmEg00waT9S2QG";
@@ -26,7 +27,7 @@ const Contact = () => {
   const handleCheckOut = async () => {
     try {
       const stripe = await loadStripe(stripeKey);
-      const apiUrl = "http://localhost:5050/check-out/session";
+      const apiUrl = `${API_URL}/check-out/session`;
       const res = await axios({
         method: "POST",
         url: apiUrl,

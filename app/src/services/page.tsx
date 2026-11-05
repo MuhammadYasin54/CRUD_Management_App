@@ -2,6 +2,7 @@
 import Navbar from "@/app/components/navbar/page";
 import React, { useRef, useState } from "react"
 import axios from "axios"
+import { API_URL } from "@/app/lib/api";
 
 
 
@@ -17,7 +18,7 @@ const Services = () =>{
             const formData = new FormData();
             formData.append("image", selectedImage);
 
-            const res = await axios.post("http://localhost:5050/api/profile/upload", formData)
+            const res = await axios.post(`${API_URL}/api/profile/upload`, formData)
             console.log("Image Upload Response:", res.data)
 
             if(res.data.status){

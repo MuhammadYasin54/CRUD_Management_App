@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import "@/app/globals.css";
 import { useRouter } from "next/navigation";
 import { getCookie } from "cookies-next";
+import { API_URL } from "@/app/lib/api";
 
 const UserPage = () =>{
 const router = useRouter();
@@ -28,7 +29,7 @@ const router = useRouter();
     
   
     try {
-      let apiUrl = "http://localhost:5050/user/fetch";
+      let apiUrl = `${API_URL}/user/fetch`;
       let res = await axios({
         url: apiUrl,
         method: "GET",
@@ -57,7 +58,7 @@ const router = useRouter();
 const deleteUser = async (id: string) => {
   console.log("User ID:", id)
     try {
-      let apiUrl = `http://localhost:5050/user/delete/${id}`;
+      let apiUrl = `${API_URL}/user/delete/${id}`;
       let res = await axios({
         url: apiUrl,
         method: "DELETE",
@@ -81,7 +82,7 @@ const deleteUser = async (id: string) => {
   const fetchUsersPerPage = async () =>{
     try {
       
-      let apiUrl = "http://localhost:5050/user/fetch/perpage";
+      let apiUrl = `${API_URL}/user/fetch/perpage`;
       let res = await axios({
         url: apiUrl,
         method: "GET",
@@ -115,7 +116,7 @@ const deleteUser = async (id: string) => {
 const deleteAllUser = async () =>{
  
     try {
-        let apiUrl = "http://localhost:5050/user/deleteall"
+        let apiUrl = `${API_URL}/user/deleteall`
       
         let res = await axios({
           url : apiUrl,
@@ -144,7 +145,7 @@ console.log("Index:", index);
   const updateUser = async () => {
 
     try {
-      let apiUrl = `http://localhost:5050/user/update`;
+      let apiUrl = `${API_URL}/user/update`;
       let res = await axios({
         url: apiUrl,
         method: "PUT",
@@ -201,7 +202,7 @@ console.log("Index:", index);
         return;
       }
     try {
-      let apiUrl = "http://localhost:5050/user/save"
+      let apiUrl = `${API_URL}/user/save`
       let res = await axios ({
         url: apiUrl,
         method : "POST",

@@ -4,6 +4,7 @@ import axios from "axios"
 import React, { useState } from "react"
 import {getCookie, setCookie} from "cookies-next"
 import { useRouter } from "next/navigation"
+import { API_URL } from "@/app/lib/api";
 
 
 const Login = () =>{
@@ -15,7 +16,7 @@ const router = useRouter();
 
     const submitForm = async () =>{
         
-        const apiUrl = "http://localhost:5050/user/login"
+        const apiUrl = `${API_URL}/user/login`
         try {
             let res = await axios({
                 url: apiUrl,
